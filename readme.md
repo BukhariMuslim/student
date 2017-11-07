@@ -6,4 +6,4 @@ Sample Project of student enrollment
 Run `php artisan migrate` to initiate data
 
 ## DB Schema
-<img src="https://www.dropbox.com/s/10fh51yhqzp3i15/model.png?dl=0" />
+![db schema](https://www.dropbox.com/s/10fh51yhqzp3i15/model.png?dl=0)
