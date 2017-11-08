@@ -3,21 +3,31 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Course</div>
+                    <div class="panel-heading">Search Result for {{ name }}</div>
                     <div class="panel-body">
-                        <div v-if="course.length == 0">
+                        <div v-if="query.length != 0">
+                            <div class="col-sm-12" v-for="(s, key) in query" :key="key" >
+                                Query {{ key + 1 }} :<br/>
+                                {{ s.query }}
+                                <div v-if="s.bindings.length > 0">
+                                    Bindings: 
+                                    <span v-for="(d, k) in s.bindings" :key="k" >
+                                        {{ d }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else></div>
+                        <div v-if="data.length == 0">
                             No data found.
                         </div>
                         <div v-else>
                             <div class="col-sm-12">
-                                Found {{ course.length }} data(s).
+                                Found {{ data.length }} data(s).
                             </div>
                             <dl>
-                                <dd class="col-sm-12" v-for="(s, key) in course" :key="key">
+                                <dd class="col-sm-12" v-for="(s, key) in data" :key="key">
                                     <dt>{{ s.name }}</dt>
-                                    <small>
-                                        {{ s.description }}
-                                    </small>
                                 </dd>
                             </dl>                            
                         </div>
@@ -33,7 +43,8 @@
         data() {
             return {
                 data: window.datas,
-                query: window.datasQuery
+                query: window.datasQuery,
+                name: window.queryName,
             }
         },
         mounted() {

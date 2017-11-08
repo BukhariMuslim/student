@@ -3,6 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/js/student.js": "/js/student.js",
     "/js/payment.js": "/js/payment.js",
+    "/js/other.js": "/js/other.js",
     "/js/instructor.js": "/js/instructor.js",
     "/js/course.js": "/js/course.js"
 }

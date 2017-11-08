@@ -101,7 +101,10 @@ class StudentController extends Controller
      */
     public function getTotalStudentWithCourse(Student $student)
     {
-        return view('other.index', [ 'students' => $student->has('payment')->get() ]);
+        \DB::connection()->enableQueryLog();
+        $data = Student::with('payments')->whereHas('payments')->get();
+        $queries = \DB::getQueryLog();
+        return view('other.index', [ 'students' => $data, 'query' => $queries, 'name' => 'Get Total Student with at least 1 course' ]);
     }
 
     /**
