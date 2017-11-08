@@ -11,5 +11,10 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
+mix.js('resources/assets/js/bootstrap.js', 'public/js')
+   .js('resources/assets/js/student.js', 'public/js')
+   .js('resources/assets/js/instructor.js', 'public/js')
+   .js('resources/assets/js/course.js', 'public/js')
+   .js('resources/assets/js/payment.js', 'public/js')
+   .js('resources/assets/js/other.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');

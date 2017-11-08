@@ -8,13 +8,23 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Student $student)
     {
-        return view('student/show', Student::all());
+        return view('student/show', [ 'students' => $student->orderByDesc('created_at')->get() ]);
     }
 
     /**
@@ -81,5 +91,71 @@ class StudentController extends Controller
     public function destroy(Student $student)
     {
         //
+    }
+
+    /**
+     * Search the specified resource from storage.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
+    public function getTotalStudentWithCourse(Student $student)
+    {
+        return view('other.index', [ 'students' => $student->has('payment')->get() ]);
+    }
+
+    /**
+     * Search the specified resource from storage.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
+    public function inActiveStudent(Student $student)
+    {
+        return view('other.index', [ 'students' => $student->has('payment')->get() ]);
+    }
+
+    /**
+     * Search the specified resource from storage.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
+    public function enrollMoreThanTwo(Student $student)
+    {
+        return view('other.index', [ 'students' => $student->has('payment')->get() ]);
+    }
+
+    /**
+     * Search the specified resource from storage.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
+    public function totalPayment(Student $student)
+    {
+        return view('other.index', [ 'students' => $student->has('payment')->get() ]);
+    }
+
+    /**
+     * Search the specified resource from storage.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
+    public function haventPaid(Student $student)
+    {
+        return view('other.index', [ 'students' => $student->has('payment')->get() ]);
+    }
+
+    /**
+     * Search the specified resource from storage.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
+    public function highestPayment(Student $student)
+    {
+        return view('other.index', [ 'students' => $student->has('payment')->get() ]);
     }
 }

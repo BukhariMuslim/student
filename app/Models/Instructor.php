@@ -22,4 +22,12 @@ class Instructor extends Model
      * @var array
      */
     protected $hidden = [ ];
+
+    /**
+     * Get the associated data.
+     */
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

@@ -20,6 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('password');
             $table->string('gender');
             $table->boolean('active');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

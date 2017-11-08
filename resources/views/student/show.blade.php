@@ -1,17 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Student</div>
-
-                <div class="panel-body">
-                    Student List
-                </div>
-            </div>
-        </div>
-    </div>
+<script>
+    window.students = @json($students);
+</script>
+<div id="student-list" class="panel-body">
 </div>
+<script src="{{ asset('js/student.js') }}"></script>
 @endsection

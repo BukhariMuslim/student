@@ -11,7 +11,7 @@ class InstructorTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('instructors')->insert(
+        DB::table('instructors')->insert([
             [
                 'name' => 'Dodi',
                 'gender' => 'male',
@@ -32,6 +32,6 @@ class InstructorTableSeeder extends Seeder
                 'name' => 'Andi',
                 'gender' => 'male',
             ]
-        );
+        ]);
     }
 }

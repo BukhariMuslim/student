@@ -2,20 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Student extends Model
+use App\Models\Payment;
+
+class Student extends Authenticatable
 {
+    use Notifiable;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
      protected $fillable = [
-        'code',
-        'amount',
-        'date',
-        'status',
+        'name',
+        'email',
+        'password',
+        'gender',
+        'active',
     ];
 
     /**
@@ -23,5 +29,16 @@ class Student extends Model
      *
      * @var array
      */
-    protected $hidden = [ ];
+    protected $hidden = [ 
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * Get the associated data.
+     */
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

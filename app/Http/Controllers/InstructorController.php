@@ -8,13 +8,23 @@ use Illuminate\Http\Request;
 class InstructorController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Instructor $instructor)
     {
-        //
+        return view('instructor/show', [ 'instructors' => $instructor->orderByDesc('created_at')->get() ]);
     }
 
     /**
@@ -81,5 +91,15 @@ class InstructorController extends Controller
     public function destroy(Instructor $instructor)
     {
         //
+    }
+
+    /**
+     * Search the specified resource from storage.
+     *
+     * @param  \App\Models\Student  $student
+     * @return \Illuminate\Http\Response
+     */
+    public function getFemaleInstructor(Instructor $instructor) {
+
     }
 }

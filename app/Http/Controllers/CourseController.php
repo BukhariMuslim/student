@@ -8,13 +8,23 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Course $course)
     {
-        //
+        return view('course/show', [ 'courses' => $course->orderByDesc('created_at')->get() ]);        
     }
 
     /**

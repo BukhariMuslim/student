@@ -46,6 +46,11 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+                            <li><a href="{{ route('student.index') }}">Student</a></li>
+                            <li><a href="{{ route('instructor.index') }}">Instructor</a></li>
+                            <li><a href="{{ route('course.index') }}">Course</a></li>
+                            <li><a href="{{ route('payment.index') }}">Payment</a></li>
+                            <li><a href="{{ route('other') }}">Other</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -75,6 +80,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
 </body>
 </html>

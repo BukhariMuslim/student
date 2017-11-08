@@ -11,7 +11,7 @@ class StudentTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('students')->insert(
+        DB::table('students')->insert([
             [
                 'name' => 'Budi',
                 'email' => 'budi'.'@gmail.com',
@@ -68,6 +68,6 @@ class StudentTableSeeder extends Seeder
                 'gender' => 'male',
                 'active' => 1,
             ]
-        );
+        ]);
     }
 }

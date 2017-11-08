@@ -12,7 +12,7 @@ class PaymentTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('payments')->insert(
+        DB::table('payments')->insert([
             [
                 'code' => str_random(10),
                 'student_id' => 1,
@@ -20,6 +20,7 @@ class PaymentTableSeeder extends Seeder
                 'instructor_id' => 1,
                 'amount' => 300000,
                 'date' => new Carbon(),
+                'status' => 1,
             ],
             [
                 'code' => str_random(10),
@@ -28,6 +29,7 @@ class PaymentTableSeeder extends Seeder
                 'instructor_id' => 3,
                 'amount' => 350000,
                 'date' => new Carbon(),
+                'status' => 0,
             ],
             [
                 'code' => str_random(10),
@@ -36,6 +38,7 @@ class PaymentTableSeeder extends Seeder
                 'instructor_id' => 3,
                 'amount' => 350000,
                 'date' => new Carbon(),
+                'status' => 1,
             ],
             [
                 'code' => str_random(10),
@@ -44,6 +47,7 @@ class PaymentTableSeeder extends Seeder
                 'instructor_id' => 3,
                 'amount' => 350000,
                 'date' => new Carbon(),
+                'status' => 1,
             ],
             [
                 'code' => str_random(10),
@@ -52,7 +56,8 @@ class PaymentTableSeeder extends Seeder
                 'instructor_id' => 4,
                 'amount' => 320000,
                 'date' => new Carbon(),
+                'status' => 0,
             ]
-        );
+        ]);
     }
 }

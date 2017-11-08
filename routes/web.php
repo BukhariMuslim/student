@@ -11,16 +11,22 @@
 |
 */
 
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+Route::resource('/student', 'StudentController');
 
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
+Route::resource('/instructor', 'InstructorController');
 
-Route::get('/student', 'StudentController@index');
+Route::resource('/course', 'CourseController');
+
+Route::resource('/payment', 'PaymentController');
+
+Route::get('/other', function () {
+    return view('other.index');
+})->name('other');
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

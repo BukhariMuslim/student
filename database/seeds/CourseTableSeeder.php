@@ -11,7 +11,7 @@ class CourseTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('courses')->insert(
+        DB::table('courses')->insert([
             [
                 'name' => 'Matematika',
                 'description' => 'Hitung menghitung',
@@ -28,6 +28,6 @@ class CourseTableSeeder extends Seeder
                 'name' => 'Fisika',
                 'description' => 'Belajar fisika',
             ]
-        );
+        ]);
     }
 }

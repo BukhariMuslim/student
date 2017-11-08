@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Student;
+use App\Models\Instructor;
+use App\Models\Course;
+
 class Payment extends Model
 {
     /**
@@ -27,4 +31,28 @@ class Payment extends Model
      * @var array
      */
     protected $hidden = [ 'password' ];
+
+    /**
+     * Get the associated data.
+     */
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'student_id');
+    }
+
+    /**
+     * Get the associated data.
+     */
+    public function instructor()
+    {
+        return $this->belongsTo(Instructor::class, 'instructor_id');
+    }
+
+    /**
+     * Get the associated data.
+     */
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'course_id');
+    }
 }
